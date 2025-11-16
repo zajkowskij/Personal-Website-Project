@@ -20,6 +20,10 @@ config/icon="res://sprites/icon.svg"
 Settings_Manager="*res://scripts/settingsManager.gd"
 Audio_Manager="*res://scenes/globals/AudioManager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={
