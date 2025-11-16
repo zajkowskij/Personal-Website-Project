@@ -229,11 +229,14 @@ drawerDirection = 0
 metadata/_custom_type_script = "uid://1r08lblwugme"
 
 [node name="Drawer3" type="Control" parent="DesktopUI"]
-anchors_preset = 0
-offset_left = 1072.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
 offset_top = 328.0
-offset_right = 1152.0
 offset_bottom = 640.0
+grow_horizontal = 0
 
 [node name="DrawerArea" type="ColorRect" parent="DesktopUI/Drawer3"]
 layout_mode = 0
@@ -288,11 +291,14 @@ drawerDirection = 1
 metadata/_custom_type_script = "uid://1r08lblwugme"
 
 [node name="Drawer4" type="Control" parent="DesktopUI"]
-anchors_preset = 0
-offset_left = 1072.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
 offset_top = 8.0
-offset_right = 1152.0
 offset_bottom = 320.0
+grow_horizontal = 0
 
 [node name="DrawerArea" type="ColorRect" parent="DesktopUI/Drawer4"]
 layout_mode = 0
