@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://ju2oxhcl0owj"]
+
+[ext_resource type="AudioStream" uid="uid://b3x0wqsfr8y1" path="res://sfx/mp3s/drag.mp3" id="1_if82n"]
+[ext_resource type="Script" uid="uid://evxlgu2gc573" path="res://scripts/Audio/soundEffect.gd" id="1_p75rr"]
+
+[resource]
+script = ExtResource("1_p75rr")
+audioStackLimit = 2
+forceTimeDelay = 0.09
+type = 2
+audioFile = ExtResource("1_if82n")
+volume = -2.0
+pitchScale = 0.75
+metadata/_custom_type_script = "uid://evxlgu2gc573"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0rjng6qdb36n"]
+
+[ext_resource type="Script" uid="uid://mtnb3bgyc2nc" path="res://scripts/DragItem/window_dragItem.gd" id="1_71cep"]
+[ext_resource type="Script" uid="uid://12lp7r35284b" path="res://scripts/deployableItem.gd" id="2_uw0ut"]
+[ext_resource type="Script" uid="uid://d3je0a0a76mwh" path="res://scripts/webLink.gd" id="3_awln0"]
+
+[node name="DeployableWindowBase" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_71cep")
+
+[node name="DeployableItem" type="Node" parent="."]
+script = ExtResource("2_uw0ut")
+metadata/_custom_type_script = "uid://12lp7r35284b"
+
+[node name="WebLink" type="Node" parent="."]
+script = ExtResource("3_awln0")
+linkString = "https://www.linkedin.com/in/jameszajkowski/"
+metadata/_custom_type_script = "uid://d3je0a0a76mwh"

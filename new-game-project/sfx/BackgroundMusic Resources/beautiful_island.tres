@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BackgroundMusic" load_steps=3 format=3 uid="uid://pb6m1g4tuiqe"]
+
+[ext_resource type="AudioStream" uid="uid://d3u7kgfhm0epv" path="res://sfx/mp3s/beautiful island.mp3" id="1_4fac2"]
+[ext_resource type="Script" uid="uid://dc5gx1gbcta2g" path="res://scripts/Audio/backgroundMusic.gd" id="1_fkufe"]
+
+[resource]
+script = ExtResource("1_fkufe")
+track = 1
+audioFile = ExtResource("1_4fac2")
+metadata/_custom_type_script = "uid://dc5gx1gbcta2g"

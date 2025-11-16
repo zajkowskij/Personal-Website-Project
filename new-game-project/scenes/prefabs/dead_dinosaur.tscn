@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b57q8cc8fb4du"]
+
+[ext_resource type="Texture2D" uid="uid://mlocd3p0xey0" path="res://sprites/dino_hit-v2.png" id="1_j4rwm"]
+
+[node name="DeadDinosaur" type="Node2D" groups=["funStuff"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+position = Vector2(10, -10)
+scale = Vector2(2, 2)
+texture = ExtResource("1_j4rwm")

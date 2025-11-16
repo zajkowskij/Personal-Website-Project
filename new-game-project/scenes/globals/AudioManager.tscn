@@ -1,0 +1,24 @@
+[gd_scene load_steps=17 format=3 uid="uid://dicpdrhdtob2e"]
+
+[ext_resource type="Script" uid="uid://cfm6roh4okpb3" path="res://scripts/Audio/audioManager.gd" id="1_5wv7o"]
+[ext_resource type="Script" uid="uid://evxlgu2gc573" path="res://scripts/Audio/soundEffect.gd" id="2_hhwm1"]
+[ext_resource type="Resource" uid="uid://c11dgsn7jhdsf" path="res://sfx/SoundEffect Resources/mouse_click_accept.tres" id="3_hhwm1"]
+[ext_resource type="Resource" uid="uid://ju2oxhcl0owj" path="res://sfx/SoundEffect Resources/drag.tres" id="4_t3yrx"]
+[ext_resource type="Resource" uid="uid://4q8j0i28ppv0" path="res://sfx/SoundEffect Resources/drag_release.tres" id="5_812jx"]
+[ext_resource type="Resource" uid="uid://dmnoax6jvl5t" path="res://sfx/SoundEffect Resources/mouse_click_single.tres" id="6_hj1su"]
+[ext_resource type="Resource" uid="uid://cmw5t8ck2lth1" path="res://sfx/SoundEffect Resources/scrollbar.tres" id="7_y05ug"]
+[ext_resource type="Resource" uid="uid://1a40dslnmosu" path="res://sfx/SoundEffect Resources/drawer_open.tres" id="8_bw6et"]
+[ext_resource type="Script" uid="uid://dc5gx1gbcta2g" path="res://scripts/Audio/backgroundMusic.gd" id="9_4gvro"]
+[ext_resource type="Resource" uid="uid://b3mw8gq4rgr6p" path="res://sfx/SoundEffect Resources/cowbell.tres" id="9_fnamv"]
+[ext_resource type="Resource" uid="uid://r2lqbqlfdb0c" path="res://sfx/SoundEffect Resources/cornerhit.tres" id="10_brybj"]
+[ext_resource type="Resource" uid="uid://bkogvarxa8ell" path="res://sfx/BackgroundMusic Resources/bgm1.tres" id="10_f1050"]
+[ext_resource type="Resource" uid="uid://be8nvwo0vcvr1" path="res://sfx/SoundEffect Resources/clap.tres" id="11_th8mh"]
+[ext_resource type="Resource" uid="uid://016kj1u4ejne" path="res://sfx/BackgroundMusic Resources/our_night.tres" id="14_mvn7e"]
+[ext_resource type="Resource" uid="uid://s63f775tdied" path="res://sfx/BackgroundMusic Resources/hypnotized.tres" id="15_44jph"]
+[ext_resource type="Resource" uid="uid://pb6m1g4tuiqe" path="res://sfx/BackgroundMusic Resources/beautiful_island.tres" id="16_gy31j"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_5wv7o")
+SFX = Array[ExtResource("2_hhwm1")]([ExtResource("3_hhwm1"), ExtResource("4_t3yrx"), ExtResource("5_812jx"), ExtResource("6_hj1su"), ExtResource("7_y05ug"), ExtResource("8_bw6et"), ExtResource("9_fnamv"), ExtResource("10_brybj"), ExtResource("11_th8mh")])
+BGM = Array[ExtResource("9_4gvro")]([ExtResource("10_f1050"), ExtResource("14_mvn7e"), ExtResource("15_44jph"), ExtResource("16_gy31j")])
+metadata/_custom_type_script = "uid://cfm6roh4okpb3"

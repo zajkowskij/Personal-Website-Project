@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7lr6a6bfj2tu"]
+
+[ext_resource type="Script" uid="uid://mtnb3bgyc2nc" path="res://scripts/DragItem/window_dragItem.gd" id="1_fcikv"]
+[ext_resource type="Script" uid="uid://12lp7r35284b" path="res://scripts/deployableItem.gd" id="2_7ygg8"]
+[ext_resource type="Texture2D" uid="uid://cekoi47xae08g" path="res://sprites/exit_button.png" id="3_ae5w7"]
+[ext_resource type="Script" uid="uid://d3je0a0a76mwh" path="res://scripts/webLink.gd" id="3_w0dwm"]
+[ext_resource type="Script" uid="uid://d2f3erc3p307k" path="res://scripts/windowUtils.gd" id="4_w0dwm"]
+
+[node name="DeployableWindowBase" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcikv")
+
+[node name="DeployableItem" type="Node" parent="."]
+script = ExtResource("2_7ygg8")
+metadata/_custom_type_script = "uid://12lp7r35284b"
+
+[node name="Panel" type="ColorRect" parent="." groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.7137255)
+
+[node name="Header" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+mouse_filter = 1
+bbcode_enabled = true
+text = "> My Skills"
+scroll_active = false
+
+[node name="Content" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -250.0
+offset_right = 190.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "What can I do? Short answer:
+
+- Programming Languages: C++, C#, Java, Python, HTML / CSS, JavaScript, PHP
+
+- Software Tools Experience:  Visual Studio / VS Code, Unity 2D/3D, Godot, Adobe Photoshop / Illustrator, Jira / Trello
+
+- Technical Skills: agile development and software development lifecycles, rapid prototyping, code optimization, software testing, object-oriented programming and technical writing.
+
+- Soft Skills: Written and verbal communication, large team collaborations and project management
+
+Long answer? I've spent a lot of time practicing the software development lifecycle. I'm talking all aspects of it, from beginning to end: requirements gathering, pitching and planning, designing and implementing, testing, deploying... and so on and so on.
+
+It's to the point where I've realized I spent so much time on the fundamentals, I hadn't really figured out how to show it all off to everyone. In a way, that's sort of what this website's all about: To put on display exactly what I can accomplish, in a way that anyone can see for themselves, understand and appreciate. It also gives me a good place to put all the stuff I worked on in the past, but never properly shared anywhere.
+
+But, that's more of a side benefit than the big payoff. Because old projects, while good to see the results of, pale in comparison to an up-to-date, open book look at my work. As such, the repository for this web playable is publically available for anyone to look at, and can be found here: [url = \"https://github.com/zajkowskij/Personal-Website-Project\"]Link to Github repository[/url]
+
+"
+
+[node name="WebLink" type="Node" parent="Panel/Content"]
+script = ExtResource("3_w0dwm")
+loadImmediate = false
+metadata/_custom_type_script = "uid://d3je0a0a76mwh"
+
+[node name="ExitButton" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 35.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_ae5w7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="WindowUtils" type="Node" parent="Panel/ExitButton"]
+script = ExtResource("4_w0dwm")
+metadata/_custom_type_script = "uid://d2f3erc3p307k"
+
+[connection signal="meta_clicked" from="Panel/Content" to="Panel/Content/WebLink" method="GoToSite"]
+[connection signal="mouse_entered" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseEnterHighlight"]
+[connection signal="mouse_exited" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseExitHighlight"]
+[connection signal="pressed" from="Panel/ExitButton" to="DeployableItem" method="ReturnIcon"]

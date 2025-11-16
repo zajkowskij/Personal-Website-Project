@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://du8bpu8r3syr"]
+
+[ext_resource type="Script" uid="uid://mtnb3bgyc2nc" path="res://scripts/DragItem/window_dragItem.gd" id="1_gkpvl"]
+[ext_resource type="Script" uid="uid://12lp7r35284b" path="res://scripts/deployableItem.gd" id="2_regpw"]
+[ext_resource type="Texture2D" uid="uid://cekoi47xae08g" path="res://sprites/exit_button.png" id="3_regpw"]
+[ext_resource type="Script" uid="uid://d2f3erc3p307k" path="res://scripts/windowUtils.gd" id="4_8pmxu"]
+
+[node name="DeployableWindowBase" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gkpvl")
+
+[node name="DeployableItem" type="Node" parent="."]
+script = ExtResource("2_regpw")
+metadata/_custom_type_script = "uid://12lp7r35284b"
+
+[node name="Panel" type="ColorRect" parent="." groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.7137255)
+
+[node name="Header" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+mouse_filter = 1
+bbcode_enabled = true
+text = "> My Life"
+scroll_active = false
+
+[node name="Content" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -250.0
+offset_right = 190.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "<10/19/25>: Here's a spot where I'll add little tidbits about my life every so often! Right now, there's not much to say, since I'm basically just working on getting this whole website/web playable thing organized and set up, but as time goes on I'll be adding more and more here!
+
+<10/25/25> Windows 10 has been my daily driver basically since I got my desktop in... 2022? Ish? Whatever the specific date is, it's been there since day one, but the time has come to make the switch. Truthfully I'm not a big fan of Windows 11, so the plan is that I'm going to switch my computer over to Linux Mint. This'll be my first real experience with Linux outside of a few exercises in my cybersecurity cert work, so wish me luck...
+
+<10/27/25> Well, it took a full day to make sure all my files were backed up and make the switch, and another day just to get used to the new workspace, but I now have Godot up and running on Linux, so here I am to pick up where I left off! Time to settle in and grind; my original goal was to have this thing done by end of October but with my regular job coming in tomorrow we'll see how viable that truly is.
+
+<11/15/25> ...Me and my big mouth.
+
+It's been a minute since I wrote something down here, and as you might guess finishing this project... did not happen by that expected timeline. But! This is the final content pass, after which all I need to do is get it into a Github repo and then host the web playable on a site somewhere. As it stands right now, everything I want to have ready in the first version is basically ready.
+
+As for why it took so long to get to this point? Nothing really that crazy, just that I had to set it on the backburner for a bit and juggle some other things more important in the moment. If I wasn't going back and forth between projects, this probably would have been knocked out long ago, but hey, that's just the process sometimes.
+
+Not sure how frequently I'll be updating this little... blog, share board thing. Once a month sounds about like what I should shoot for, so... expect that?"
+
+[node name="ExitButton" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 35.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_regpw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="WindowUtils" type="Node" parent="Panel/ExitButton"]
+script = ExtResource("4_8pmxu")
+metadata/_custom_type_script = "uid://d2f3erc3p307k"
+
+[connection signal="mouse_entered" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseEnterHighlight"]
+[connection signal="mouse_exited" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseExitHighlight"]
+[connection signal="pressed" from="Panel/ExitButton" to="DeployableItem" method="ReturnIcon"]

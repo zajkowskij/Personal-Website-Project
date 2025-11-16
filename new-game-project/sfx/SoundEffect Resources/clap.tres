@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://be8nvwo0vcvr1"]
+
+[ext_resource type="AudioStream" uid="uid://dtuk82hnghftk" path="res://sfx/mp3s/clap.mp3" id="1_r6181"]
+[ext_resource type="Script" uid="uid://evxlgu2gc573" path="res://scripts/Audio/soundEffect.gd" id="1_tk6ws"]
+
+[resource]
+script = ExtResource("1_tk6ws")
+type = 9
+audioFile = ExtResource("1_r6181")
+volume = 4.0
+metadata/_custom_type_script = "uid://evxlgu2gc573"

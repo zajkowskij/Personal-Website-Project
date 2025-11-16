@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://4q8j0i28ppv0"]
+
+[ext_resource type="Script" uid="uid://evxlgu2gc573" path="res://scripts/Audio/soundEffect.gd" id="1_cplvv"]
+[ext_resource type="AudioStream" uid="uid://b3x0wqsfr8y1" path="res://sfx/mp3s/drag.mp3" id="1_jyy5d"]
+
+[resource]
+script = ExtResource("1_cplvv")
+type = 3
+audioFile = ExtResource("1_jyy5d")
+pitchScale = 0.5
+metadata/_custom_type_script = "uid://evxlgu2gc573"

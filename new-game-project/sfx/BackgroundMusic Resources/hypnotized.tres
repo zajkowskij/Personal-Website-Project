@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BackgroundMusic" load_steps=3 format=3 uid="uid://s63f775tdied"]
+
+[ext_resource type="Script" uid="uid://dc5gx1gbcta2g" path="res://scripts/Audio/backgroundMusic.gd" id="1_7il3k"]
+[ext_resource type="AudioStream" uid="uid://bfbvrp52h7nqm" path="res://sfx/mp3s/hypnotized.mp3" id="1_cqj1u"]
+
+[resource]
+script = ExtResource("1_7il3k")
+track = 2
+audioFile = ExtResource("1_cqj1u")
+metadata/_custom_type_script = "uid://dc5gx1gbcta2g"

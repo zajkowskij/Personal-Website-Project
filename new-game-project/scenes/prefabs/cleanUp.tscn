@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1uexd4fksd1m"]
+
+[ext_resource type="Script" uid="uid://bmhfbj2k7os26" path="res://scripts/cleanUp.gd" id="1_bopsk"]
+
+[node name="CleanUp" type="Node"]
+script = ExtResource("1_bopsk")

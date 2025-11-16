@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdcv5gmf3m1mo"]
+
+[ext_resource type="Script" uid="uid://ccf30g7xfff2h" path="res://scripts/screensaver.gd" id="1_hv5yj"]
+[ext_resource type="Texture2D" uid="uid://bfn6cbufx0hqw" path="res://sprites/unnamed-removebg-preview.png" id="2_hv5yj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hv5yj"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryguw"]
+size = Vector2(111, 50)
+
+[node name="Screensaver" type="RigidBody2D" groups=["funStuff"]]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_hv5yj")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_hv5yj")
+initialVel = Vector2(100, 100)
+randomizeDirection = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_hv5yj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ryguw")

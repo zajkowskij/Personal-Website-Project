@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://ovohbpbbxsry"]
+
+[ext_resource type="Script" uid="uid://mtnb3bgyc2nc" path="res://scripts/DragItem/window_dragItem.gd" id="1_cexmg"]
+[ext_resource type="Script" uid="uid://12lp7r35284b" path="res://scripts/deployableItem.gd" id="2_ff3rk"]
+[ext_resource type="Texture2D" uid="uid://cekoi47xae08g" path="res://sprites/exit_button.png" id="3_ff3rk"]
+[ext_resource type="Script" uid="uid://d3je0a0a76mwh" path="res://scripts/webLink.gd" id="3_iadtx"]
+[ext_resource type="Script" uid="uid://d2f3erc3p307k" path="res://scripts/windowUtils.gd" id="4_iadtx"]
+
+[node name="DeployableWindowBase" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cexmg")
+
+[node name="DeployableItem" type="Node" parent="."]
+script = ExtResource("2_ff3rk")
+metadata/_custom_type_script = "uid://12lp7r35284b"
+
+[node name="Panel" type="ColorRect" parent="." groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.7137255)
+
+[node name="Header" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+mouse_filter = 1
+bbcode_enabled = true
+text = "> My Hobbies"
+scroll_active = false
+
+[node name="Content" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -250.0
+offset_right = 190.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "When I'm not programming for some personal project or another, or dipping my toes into the field of cybersecurity, or working my regular job, there are actually a few other ways I like to spend my spare time!
+
+The big one I've been holding down now for roughly half a year has been writing my own book. It's a web serial format, which I've been uploading consistently to Royal Road as something I just wanted to kind of dive off the deep end on and see where it ended up. One day I had this idea for a setting that was... kind of an alternate history thing, where magic was not only real but already well-established in daily life? I wanted to explore the kind of thing that would upend [i]that,[/i] when they've already adapted to an existing magic system.
+
+To my surprise, it's been a modest success! Nothing earth-shattering, mind, but it made a decent run of the trending page when it was new and since then views have been pretty consistent overall.
+
+If you want to go take a look at it yourself, [url=https://www.royalroad.com/fiction/111062/hallow-london-apocalyptic-urban-fantasy]here's a link.[/url] 
+
+Creative works like this make me feel alive, in a way. I like finding ways to express cool ideas I come up with, the process of figuring out how to execute on things and learn on the fly. Programming is a powerful tool for that, which is probably why I gravitated towards it at a young age and decided to make it a career later. For me, it wasn't just 'the thing other people do to make cool games and stuff.' It was - and still is - the way I saw to make my own cool ideas come to life.
+
+Call me crazy, but I don't want to just stop there, either. I want to master so, [i]so[/i] much more.
+
+There are a few other things I like to do every so often, when time allows, but chances for them haven't been as prevalent recently. I used to paint Warhammer 40k minis - of which I still own a considerable unpainted pile of shame, as is customary - I've tried my hand at music mashups and voice acting, and someday, SOMEDAY, I'll manage to get a group together to play D&D with again. And maybe I'll finally pick up a sketchbook to top it all off, once I've done that.
+
+Crazy dream? Probably. But It'll never happen if I give up on it, right?
+
+In the meantime, though, I'm kept plenty busy between code, writing, and job search. Fingers crossed that that third one eases up soon, and I can get something in my field, though! In the meantime, I plan to keep plugging away with an indie rock playlist or two to keep me company. Illegitemi non carborundum, and all that."
+
+[node name="WebLink" type="Node" parent="Panel/Content"]
+script = ExtResource("3_iadtx")
+loadImmediate = false
+metadata/_custom_type_script = "uid://d3je0a0a76mwh"
+
+[node name="ExitButton" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 35.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_ff3rk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="WindowUtils" type="Node" parent="Panel/ExitButton"]
+script = ExtResource("4_iadtx")
+metadata/_custom_type_script = "uid://d2f3erc3p307k"
+
+[connection signal="meta_clicked" from="Panel/Content" to="Panel/Content/WebLink" method="GoToSite"]
+[connection signal="mouse_entered" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseEnterHighlight"]
+[connection signal="mouse_exited" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseExitHighlight"]
+[connection signal="pressed" from="Panel/ExitButton" to="DeployableItem" method="ReturnIcon"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dghgvips067p8"]
+
+[ext_resource type="Script" uid="uid://b7amexge2uudb" path="res://scripts/obstaclePrefab.gd" id="1_1sdev"]
+[ext_resource type="Texture2D" uid="uid://d2hxf5s8v2a1x" path="res://sprites/King-Tut-Funerary-Mask-c.-1327-BC-removebg-preview.png" id="2_1sdev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnwxo"]
+size = Vector2(32, 32)
+
+[node name="ObstaclePrefab" type="CharacterBody2D" groups=["funStuff"]]
+motion_mode = 1
+script = ExtResource("1_1sdev")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_1sdev")
+region_rect = Rect2(32, 32, 64, 64)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hnwxo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

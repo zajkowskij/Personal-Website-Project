@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://brjwnif1pbnbc"]
+
+[ext_resource type="Script" uid="uid://cxoyfnwnjxqin" path="res://scripts/dinosaur.gd" id="1_3b1iw"]
+[ext_resource type="Texture2D" uid="uid://ddofcth8ud0xk" path="res://sprites/dino-crouch_1-v2.png" id="2_3b1iw"]
+[ext_resource type="Texture2D" uid="uid://bvnuinhbjomdm" path="res://sprites/dino-crouch_2-v2.png" id="3_8nytf"]
+[ext_resource type="Texture2D" uid="uid://dyghrjvxvm3uv" path="res://sprites/dino-walk_0-v2.png" id="4_edwth"]
+[ext_resource type="Texture2D" uid="uid://b1rw7x2eitjqr" path="res://sprites/dino-walk_1-v2.png" id="5_abmwy"]
+[ext_resource type="Texture2D" uid="uid://d2547yvtn3kcg" path="res://sprites/dino-walk_2-v2.png" id="6_l0ewm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryguw"]
+size = Vector2(7, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6jrf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3b1iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8nytf")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_edwth")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_abmwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l0ewm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="dinosaur" type="CharacterBody2D" groups=["dinosaur", "funStuff"]]
+collision_layer = 3
+script = ExtResource("1_3b1iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ryguw")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." groups=["funStuff"]]
+texture_filter = 1
+position = Vector2(15.5, -16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_a6jrf")
+animation = &"walk"

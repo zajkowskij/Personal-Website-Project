@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://dujv250f31jdm"]
+
+[ext_resource type="AudioStream" uid="uid://cb5qdosugpxi5" path="res://sfx/mp3s/piano.mp3" id="1_1ljxi"]
+[ext_resource type="Script" uid="uid://evxlgu2gc573" path="res://scripts/Audio/soundEffect.gd" id="1_71qyn"]
+
+[resource]
+script = ExtResource("1_71qyn")
+type = 10
+audioFile = ExtResource("1_1ljxi")
+metadata/_custom_type_script = "uid://evxlgu2gc573"

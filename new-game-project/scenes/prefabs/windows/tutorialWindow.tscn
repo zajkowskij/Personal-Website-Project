@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb8ewnpw8071d"]
+
+[ext_resource type="Script" uid="uid://mtnb3bgyc2nc" path="res://scripts/DragItem/window_dragItem.gd" id="1_wtuu0"]
+[ext_resource type="Script" uid="uid://12lp7r35284b" path="res://scripts/deployableItem.gd" id="2_1w51j"]
+[ext_resource type="Texture2D" uid="uid://cekoi47xae08g" path="res://sprites/exit_button.png" id="3_dogpj"]
+[ext_resource type="Script" uid="uid://d2f3erc3p307k" path="res://scripts/windowUtils.gd" id="4_4i780"]
+
+[node name="TutorialWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_wtuu0")
+
+[node name="DeployableItem" type="Node" parent="."]
+script = ExtResource("2_1w51j")
+metadata/_custom_type_script = "uid://12lp7r35284b"
+
+[node name="Panel" type="ColorRect" parent="." groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 6
+color = Color(0.75686276, 0.75686276, 0.75686276, 0.7411765)
+
+[node name="Header" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "> Welcome!"
+scroll_active = false
+
+[node name="Content" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -210.0
+offset_right = 180.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Hi, my name is James. I've put this place together to showcase what I can do, what I like to do, and what I'm working on right now.
+
+To see my work, click on the 'monitors' at the sides of the screen and drag the icons onto the center area. These will open up new windows like this one, or if it comes from the Fun Stuff drawer, more likely it will have some sort of interesting effect to play around with.
+
+Have a look around, and enjoy!
+
+"
+
+[node name="ExitButton" type="TextureButton" parent="Panel" groups=["button"]]
+self_modulate = Color(0.7792914, 0.7792914, 0.7792913, 1)
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 35.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_dogpj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="WindowUtils" type="Node" parent="Panel/ExitButton"]
+script = ExtResource("4_4i780")
+metadata/_custom_type_script = "uid://d2f3erc3p307k"
+
+[connection signal="mouse_entered" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseEnterHighlight"]
+[connection signal="mouse_exited" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseExitHighlight"]
+[connection signal="pressed" from="Panel/ExitButton" to="DeployableItem" method="ReturnIcon"]

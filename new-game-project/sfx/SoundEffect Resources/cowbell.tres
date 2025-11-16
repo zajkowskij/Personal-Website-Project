@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://b3mw8gq4rgr6p"]
+
+[ext_resource type="AudioStream" uid="uid://wr15134k8osj" path="res://sfx/mp3s/cowbell.mp3" id="1_6pihj"]
+[ext_resource type="Script" uid="uid://evxlgu2gc573" path="res://scripts/Audio/soundEffect.gd" id="1_7kws8"]
+
+[resource]
+script = ExtResource("1_7kws8")
+type = 7
+audioFile = ExtResource("1_6pihj")
+volume = -4.0
+pitchRandomness = 0.2
+metadata/_custom_type_script = "uid://evxlgu2gc573"

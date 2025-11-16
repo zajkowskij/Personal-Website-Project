@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhvg1kfk45yy7"]
+
+[ext_resource type="Script" uid="uid://c0e340m1jkiul" path="res://scripts/DragItem/icon_dragItem.gd" id="1_6i4la"]
+[ext_resource type="PackedScene" uid="uid://dvm8nvb33gwmn" path="res://scenes/prefabs/windows/Options/PatchNotesWindow.tscn" id="2_c1rix"]
+[ext_resource type="Texture2D" uid="uid://b0hnt2cm63a16" path="res://sprites/pixil-layer-Layer 2.png" id="3_oa0ax"]
+
+[node name="IconBase" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6i4la")
+deployable = ExtResource("2_c1rix")
+
+[node name="IconTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -29.0
+offset_right = 36.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 6
+texture = ExtResource("3_oa0ax")
+expand_mode = 1
+
+[node name="IconLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 32.0
+offset_right = 40.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[center]Patch Notes[/center]"
+scroll_active = false

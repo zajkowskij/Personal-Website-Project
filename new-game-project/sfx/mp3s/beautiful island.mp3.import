@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3u7kgfhm0epv"
+path="res://.godot/imported/beautiful island.mp3-d8e778fdbaec992e10137db0fdef01a4.mp3str"
+
+[deps]
+
+source_file="res://sfx/mp3s/beautiful island.mp3"
+dest_files=["res://.godot/imported/beautiful island.mp3-d8e778fdbaec992e10137db0fdef01a4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

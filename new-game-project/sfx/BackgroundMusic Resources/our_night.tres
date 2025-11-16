@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BackgroundMusic" load_steps=3 format=3 uid="uid://016kj1u4ejne"]
+
+[ext_resource type="AudioStream" uid="uid://wa5lac5i47u7" path="res://sfx/mp3s/our night.mp3" id="1_5p7xd"]
+[ext_resource type="Script" uid="uid://dc5gx1gbcta2g" path="res://scripts/Audio/backgroundMusic.gd" id="1_otsev"]
+
+[resource]
+script = ExtResource("1_otsev")
+track = 3
+audioFile = ExtResource("1_5p7xd")
+metadata/_custom_type_script = "uid://dc5gx1gbcta2g"

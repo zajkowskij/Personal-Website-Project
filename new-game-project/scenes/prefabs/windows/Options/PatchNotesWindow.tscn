@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvm8nvb33gwmn"]
+
+[ext_resource type="Script" uid="uid://mtnb3bgyc2nc" path="res://scripts/DragItem/window_dragItem.gd" id="1_fbnv1"]
+[ext_resource type="Script" uid="uid://12lp7r35284b" path="res://scripts/deployableItem.gd" id="2_6hnjf"]
+[ext_resource type="Texture2D" uid="uid://cekoi47xae08g" path="res://sprites/exit_button.png" id="3_187hp"]
+[ext_resource type="Script" uid="uid://d2f3erc3p307k" path="res://scripts/windowUtils.gd" id="4_j8ubw"]
+
+[node name="DeployableWindowBase" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fbnv1")
+
+[node name="DeployableItem" type="Node" parent="."]
+script = ExtResource("2_6hnjf")
+metadata/_custom_type_script = "uid://12lp7r35284b"
+
+[node name="Panel" type="ColorRect" parent="." groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.7137255)
+
+[node name="Header" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+mouse_filter = 1
+bbcode_enabled = true
+text = "> Patch Notes"
+scroll_active = false
+
+[node name="Content" type="RichTextLabel" parent="Panel" groups=["brightnessModeAffected"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -75.0
+offset_right = 140.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "<10/19/25 - Prototype v0.1>:
+- uploaded preliminary prototype to Github repository.
+- Prototype includes foundational drawer code, drag and drop functionality, and basic content for eventual release"
+
+[node name="ExitButton" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 35.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_187hp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="WindowUtils" type="Node" parent="Panel/ExitButton"]
+script = ExtResource("4_j8ubw")
+metadata/_custom_type_script = "uid://d2f3erc3p307k"
+
+[connection signal="mouse_entered" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseEnterHighlight"]
+[connection signal="mouse_exited" from="Panel/ExitButton" to="Panel/ExitButton/WindowUtils" method="MouseExitHighlight"]
+[connection signal="pressed" from="Panel/ExitButton" to="DeployableItem" method="ReturnIcon"]

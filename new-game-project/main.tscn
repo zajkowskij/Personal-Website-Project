@@ -1,0 +1,405 @@
+[gd_scene load_steps=30 format=3 uid="uid://tj646ex5vgjy"]
+
+[ext_resource type="Script" uid="uid://dm632a745drnx" path="res://scripts/DropArea/catch_dropArea.gd" id="1_7mycd"]
+[ext_resource type="Texture2D" uid="uid://ckve4ai2gj7ch" path="res://sprites/npr.brightspotcdn.jpeg" id="2_d13ii"]
+[ext_resource type="Script" uid="uid://1r08lblwugme" path="res://scripts/drawer.gd" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://b56nu625jtr6j" path="res://sprites/23128bb6b2408c2d69116a90dd244dda.jpg" id="2_ryguw"]
+[ext_resource type="Script" uid="uid://2rq1p2fde0ih" path="res://scripts/DropArea/table_dropArea.gd" id="3_272bh"]
+[ext_resource type="Script" uid="uid://b8ja2iglv62pe" path="res://scripts/DropArea/drawer_dropArea.gd" id="4_5vw27"]
+[ext_resource type="Script" uid="uid://babqln3sdm41s" path="res://scripts/scoreCard.gd" id="4_82xsv"]
+[ext_resource type="PackedScene" uid="uid://bb8ewnpw8071d" path="res://scenes/prefabs/windows/tutorialWindow.tscn" id="4_kek77"]
+[ext_resource type="PackedScene" uid="uid://dre5xvg50afs" path="res://scenes/prefabs/icons/About Me/BlogIcon.tscn" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://dqpphjewi272r" path="res://sprites/background_frame.png" id="7_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://bp3wmddpnyv03" path="res://scenes/prefabs/icons/About Me/SkillsIcon.tscn" id="7_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cdfs071fickcb" path="res://scenes/prefabs/icons/About Me/HobbiesIcon.tscn" id="8_efxa6"]
+[ext_resource type="Texture2D" uid="uid://ou5tl4p350xe" path="res://sprites/monitor.png" id="9_0odxb"]
+[ext_resource type="PackedScene" uid="uid://4xa27y71n1pi" path="res://scenes/prefabs/icons/Links/GithubIcon.tscn" id="10_vivmo"]
+[ext_resource type="PackedScene" uid="uid://dhuq7nk6hhuoi" path="res://scenes/prefabs/icons/Links/ItchIOIcon.tscn" id="11_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dm26brhlmekap" path="res://scenes/prefabs/icons/Links/LinkedInIcon.tscn" id="12_yaehf"]
+[ext_resource type="PackedScene" uid="uid://gojaxl2deld8" path="res://scenes/prefabs/icons/Links/ContactEmailIcon.tscn" id="13_074og"]
+[ext_resource type="PackedScene" uid="uid://dhvg1kfk45yy7" path="res://scenes/prefabs/icons/Options/PatchNotesIcon.tscn" id="14_cegan"]
+[ext_resource type="PackedScene" uid="uid://cyhhwud1mxjlm" path="res://scenes/prefabs/icons/Options/SettingsIcon.tscn" id="15_82xsv"]
+[ext_resource type="Script" uid="uid://dadpjy2uyti7w" path="res://scripts/brightnessModeAffector.gd" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://3kci4mvuvlvo" path="res://scenes/prefabs/icons/Fun Stuff/screensaverIcon.tscn" id="16_yaehf"]
+[ext_resource type="PackedScene" uid="uid://cd6mloxu0uc5y" path="res://scenes/prefabs/icons/Fun Stuff/cleanUpIcon.tscn" id="17_074og"]
+[ext_resource type="PackedScene" uid="uid://ban4a8v7l3tu7" path="res://scenes/prefabs/icons/Fun Stuff/dinosaurIcon.tscn" id="19_ryguw"]
+[ext_resource type="Script" uid="uid://24ox8rwr20vi" path="res://scripts/obstacle_manager.gd" id="21_ryguw"]
+[ext_resource type="Script" uid="uid://blou7yooohlrh" path="res://fade_in.gd" id="24_0odxb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_074og"]
+size = Vector2(1152, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
+size = Vector2(1152, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82xsv"]
+size = Vector2(20, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_getpj"]
+size = Vector2(20, 648)
+
+[node name="main" type="Node"]
+
+[node name="DesktopUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WireframeElements" type="Control" parent="DesktopUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="DesktopUI/WireframeElements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("2_d13ii")
+script = ExtResource("1_7mycd")
+
+[node name="Table" type="TextureRect" parent="DesktopUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 141.25
+offset_top = 46.5
+offset_right = -141.25
+offset_bottom = -46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ryguw")
+script = ExtResource("3_272bh")
+
+[node name="TutorialWindow" parent="DesktopUI/Table" instance=ExtResource("4_kek77")]
+layout_mode = 1
+
+[node name="ScoreCard" type="RichTextLabel" parent="DesktopUI/Table" groups=["scoreCard"]]
+visible = false
+layout_mode = 0
+offset_left = 5.75
+offset_top = 40.5
+offset_right = 105.75
+offset_bottom = 80.5
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]00000[/center]"
+scroll_active = false
+script = ExtResource("4_82xsv")
+stepTime = 0.125
+
+[node name="TextureRect" type="TextureRect" parent="DesktopUI/Table"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.25
+offset_top = -33.5
+offset_right = 32.25
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_1u8w0")
+
+[node name="Drawer" type="Control" parent="DesktopUI"]
+anchors_preset = 0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 320.0
+
+[node name="DrawerArea" type="ColorRect" parent="DesktopUI/Drawer"]
+layout_mode = 0
+offset_left = -500.0
+offset_bottom = 290.0
+color = Color(1.92523e-07, 0.34913042, 0.2557516, 1)
+script = ExtResource("4_5vw27")
+
+[node name="DrawerOpenButton" type="TextureButton" parent="DesktopUI/Drawer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = 303.0
+offset_right = 206.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_0odxb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_7mycd")
+
+[node name="DrawerLabel" type="RichTextLabel" parent="DesktopUI/Drawer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = 96.0
+offset_right = 186.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]About Me[/center]"
+scroll_active = false
+
+[node name="Drawer" type="Node" parent="DesktopUI/Drawer"]
+script = ExtResource("2_h2yge")
+itemsInDrawer = Array[PackedScene]([ExtResource("6_kek77"), ExtResource("7_4c57u"), ExtResource("8_efxa6")])
+drawerDirection = 0
+metadata/_custom_type_script = "uid://1r08lblwugme"
+
+[node name="Drawer2" type="Control" parent="DesktopUI"]
+anchors_preset = 0
+offset_top = 328.0
+offset_right = 80.0
+offset_bottom = 640.0
+
+[node name="DrawerArea" type="ColorRect" parent="DesktopUI/Drawer2"]
+layout_mode = 0
+offset_left = -500.0
+offset_bottom = 290.0
+color = Color(1.92523e-07, 0.34913042, 0.2557516, 1)
+script = ExtResource("4_5vw27")
+
+[node name="DrawerOpenButton" type="TextureButton" parent="DesktopUI/Drawer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 305.0
+offset_right = 182.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_0odxb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_7mycd")
+
+[node name="DrawerLabel" type="RichTextLabel" parent="DesktopUI/Drawer2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 90.0
+offset_right = 168.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Links[/center]"
+scroll_active = false
+
+[node name="Drawer" type="Node" parent="DesktopUI/Drawer2"]
+script = ExtResource("2_h2yge")
+itemsInDrawer = Array[PackedScene]([ExtResource("10_vivmo"), ExtResource("11_2cqfq"), ExtResource("12_yaehf"), ExtResource("13_074og")])
+drawerDirection = 0
+metadata/_custom_type_script = "uid://1r08lblwugme"
+
+[node name="Drawer3" type="Control" parent="DesktopUI"]
+anchors_preset = 0
+offset_left = 1072.0
+offset_top = 328.0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="DrawerArea" type="ColorRect" parent="DesktopUI/Drawer3"]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 580.0
+offset_bottom = 290.0
+color = Color(1.92523e-07, 0.34913042, 0.2557516, 1)
+script = ExtResource("4_5vw27")
+
+[node name="DrawerOpenButton" type="TextureButton" parent="DesktopUI/Drawer3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 134.0
+offset_top = -8.0
+offset_right = 366.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_0odxb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_7mycd")
+
+[node name="DrawerLabel" type="RichTextLabel" parent="DesktopUI/Drawer3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -50.0
+offset_right = 132.99997
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Options[/center]"
+scroll_active = false
+
+[node name="Drawer" type="Node" parent="DesktopUI/Drawer3"]
+script = ExtResource("2_h2yge")
+itemsInDrawer = Array[PackedScene]([ExtResource("14_cegan"), ExtResource("15_82xsv")])
+drawerDirection = 1
+metadata/_custom_type_script = "uid://1r08lblwugme"
+
+[node name="Drawer4" type="Control" parent="DesktopUI"]
+anchors_preset = 0
+offset_left = 1072.0
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 320.0
+
+[node name="DrawerArea" type="ColorRect" parent="DesktopUI/Drawer4"]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 580.0
+offset_bottom = 290.0
+color = Color(1.92523e-07, 0.34913042, 0.2557516, 1)
+script = ExtResource("4_5vw27")
+
+[node name="DrawerOpenButton" type="TextureButton" parent="DesktopUI/Drawer4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 105.0
+offset_top = -9.0
+offset_right = 337.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_0odxb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_7mycd")
+
+[node name="DrawerLabel" type="RichTextLabel" parent="DesktopUI/Drawer4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -53.0
+offset_right = 102.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Fun Stuff[/center]"
+scroll_active = false
+
+[node name="Drawer" type="Node" parent="DesktopUI/Drawer4"]
+script = ExtResource("2_h2yge")
+itemsInDrawer = Array[PackedScene]([ExtResource("16_yaehf"), ExtResource("17_074og"), ExtResource("19_ryguw")])
+drawerDirection = 1
+metadata/_custom_type_script = "uid://1r08lblwugme"
+
+[node name="BrightnessModeAffector" type="Node" parent="DesktopUI" groups=["brightnessModeAffector"]]
+script = ExtResource("16_2cqfq")
+colorRect_lightMode = Color(0.75686276, 0.75686276, 0.75686276, 0.7411765)
+colorRect_darkMode = Color(0, 0, 0, 0.6313726)
+richTextLabel_darkMode = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://dadpjy2uyti7w"
+
+[node name="FadeIn" type="ColorRect" parent="DesktopUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("24_0odxb")
+
+[node name="2DPlayArea" type="Node2D" parent="." groups=["2dPlayArea"]]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="2DPlayArea"]
+position = Vector2(0, 74)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2DPlayArea/StaticBody2D"]
+position = Vector2(576, -10)
+shape = SubResource("RectangleShape2D_074og")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="2DPlayArea"]
+position = Vector2(0, 593)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2DPlayArea/StaticBody2D2"]
+position = Vector2(576, -10)
+shape = SubResource("RectangleShape2D_cegan")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="2DPlayArea"]
+position = Vector2(145, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2DPlayArea/StaticBody2D3"]
+position = Vector2(-10, 319)
+shape = SubResource("RectangleShape2D_82xsv")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="2DPlayArea"]
+position = Vector2(1013, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2DPlayArea/StaticBody2D4"]
+position = Vector2(-10, 319)
+shape = SubResource("RectangleShape2D_getpj")
+
+[node name="obstacleManager" type="Node2D" parent="2DPlayArea" groups=["obstacleManager"]]
+script = ExtResource("21_ryguw")
+hSpawnRange = Vector2(450, 550)
+vSpawnRange = Vector2(200, 952)
+
+[connection signal="pressed" from="DesktopUI/Drawer/DrawerOpenButton" to="DesktopUI/Drawer/Drawer" method="OnDrawerButtonPressed"]
+[connection signal="pressed" from="DesktopUI/Drawer2/DrawerOpenButton" to="DesktopUI/Drawer2/Drawer" method="OnDrawerButtonPressed"]
+[connection signal="pressed" from="DesktopUI/Drawer3/DrawerOpenButton" to="DesktopUI/Drawer3/Drawer" method="OnDrawerButtonPressed"]
+[connection signal="pressed" from="DesktopUI/Drawer4/DrawerOpenButton" to="DesktopUI/Drawer4/Drawer" method="OnDrawerButtonPressed"]

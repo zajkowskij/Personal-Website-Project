@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd6mloxu0uc5y"]
+
+[ext_resource type="Script" uid="uid://c0e340m1jkiul" path="res://scripts/DragItem/icon_dragItem.gd" id="1_r0olh"]
+[ext_resource type="PackedScene" uid="uid://c1uexd4fksd1m" path="res://scenes/prefabs/cleanUp.tscn" id="2_wt1tn"]
+[ext_resource type="Texture2D" uid="uid://bgbpwijp78e3t" path="res://sprites/Full-removebg-preview.png" id="3_wt1tn"]
+
+[node name="IconBase" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0olh")
+deployable = ExtResource("2_wt1tn")
+
+[node name="IconTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -45.0
+offset_right = 32.0
+offset_bottom = 34.252335
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wt1tn")
+expand_mode = 5
+
+[node name="IconLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 32.0
+offset_right = 40.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[center]Clean Up[/center]"
+scroll_active = false

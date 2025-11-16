@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfic6ovo1mh63"]
+
+[ext_resource type="Material" path="res://materials/Metal009_1K-JPG.tres" id="1_udjvf"]
+
+[node name="Studio" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = ExtResource("1_udjvf")
+size = Vector3(5, 1, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+material_override = ExtResource("1_udjvf")
+size = Vector3(1, 3, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+material_override = ExtResource("1_udjvf")
+size = Vector3(1, 3, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5.5)
+material_override = ExtResource("1_udjvf")
+size = Vector3(7, 3, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5.5)
+material_override = ExtResource("1_udjvf")
+size = Vector3(7, 3, 1)
